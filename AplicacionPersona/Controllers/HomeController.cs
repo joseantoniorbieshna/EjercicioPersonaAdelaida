@@ -12,19 +12,19 @@ namespace AplicacionPersona.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            Persona persona = new Persona() { Id = 1, Nombre = "Pepito",Nacimiento=new DateTime(2015,1,23) , Edad=10};
-           // db.Persona.Add(persona);
-            db.Persona.Attach(persona);
+            //Persona persona = new Persona() { Id = 10, Nombre = "Fernanda",Nacimiento=new DateTime(1999,11,10) , Edad=20};
+            //db.Persona.Add(persona);
+            //db.Persona.Attach(persona);
             /*
-            db.Direccion.Add(new Direccion() { CodigoDireccion=1,Calle="Calle Federico",Persona=persona});
-            db.Direccion.Add(new Direccion() { CodigoDireccion = 2, Calle = "Calle Mayo", Persona = persona });
-            db.Direccion.Add(new Direccion() { CodigoDireccion = 2, Calle = "Calle Extrania", Persona = persona });
+            db.Direccion.Add(new Direccion() { CodigoDireccion=4,Calle="Calle Sevilla",Persona=persona});
+            db.Direccion.Add(new Direccion() { CodigoDireccion = 5, Calle = "Calle Ramon", Persona = persona });
+            db.Direccion.Add(new Direccion() { CodigoDireccion = 6, Calle = "Calle Zugasti", Persona = persona });
             */
             //db.SaveChanges();
 
-            var personaDevolver = db.Persona.Include("Direcciones").FirstOrDefault(x => x.Id==1);
+            //var personaDevolver = db.Persona.Include("Direcciones").FirstOrDefault(x => x.Id==1);
 
-            return View(personaDevolver);
+            return View();
         }
 
         public ActionResult About()
