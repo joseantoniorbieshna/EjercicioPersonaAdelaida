@@ -246,7 +246,6 @@
     <Content Include="Views\Persona\Index.cshtml" />
     <Content Include="Views\Persona\Details.cshtml" />
     <Content Include="Views\Persona\Create.cshtml" />
-    <Content Include="Views\Persona\CreateDireccion.cshtml" />
     <Content Include="Views\Direccions\Create.cshtml" />
     <Content Include="Views\Direccions\Delete.cshtml" />
     <Content Include="Views\Direccions\Details.cshtml" />

@@ -21,7 +21,7 @@
             @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display:none">
         @Html.Label("Persona", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Persona.Id, new { htmlAttributes = new { @Value = ViewBag.PersonaId } })

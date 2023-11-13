@@ -1,4 +1,5 @@
-﻿
+﻿@model AplicacionPersona.Models.Persona
+
 @{
     ViewBag.Title = "Details";
 }
@@ -8,22 +9,25 @@
 <p>Edad: <span>@Model.Edad</span></p>
 <p>Nacimiento: <span>@Model.Nacimiento</span></p>
 
+@if (@Model.Direcciones.Any())
+{<p>Direcciones:</p> }
 <ul>
-    <p>Direcciones:</p>
     @{
-        if (@Model.Direcciones != null)
+        if (@Model.Direcciones.Any())
         {
+            
 
             foreach (var direccion in Model.Direcciones)
             {
-        <li style="display:flex">
-            <p style="margin-right:20px">@direccion.CodigoDireccion-@direccion.Calle</p>
-            
-            @Html.ActionLink("Edit", "Edit", "Direccions", new { id = @direccion.CodigoDireccion }, null) |
-            @Html.ActionLink("Details", "Details", "Direccions", new { id = @direccion.CodigoDireccion }, null) |
-            @Html.ActionLink("Delete", "Delete", "Direccions", new { id = @direccion.CodigoDireccion }, null)
-        </li>
+                <li style="display:flex">
+                    <p style="margin-right:20px">@direccion.CodigoDireccion-@direccion.Calle</p>
+
+                    @Html.ActionLink("Edit", "Edit", "Direccions", new { id = @direccion.CodigoDireccion }, null) |
+                    @Html.ActionLink("Details", "Details", "Direccions", new { id = @direccion.CodigoDireccion }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Direccions", new { id = @direccion.CodigoDireccion }, null)
+                </li>
             }
+
         }
     }
 </ul>

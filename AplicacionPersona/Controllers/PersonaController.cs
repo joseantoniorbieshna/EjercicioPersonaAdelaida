@@ -24,7 +24,7 @@ namespace AplicacionPersona.Controllers
         // GET: Persona/Details/5
         public ActionResult Details(int id)
         {
-            var personaDevolver = _repo.getPersonaById(id);
+            Persona personaDevolver = _repo.getPersonaById(id);
 
             return View(personaDevolver);
         }
@@ -37,12 +37,17 @@ namespace AplicacionPersona.Controllers
 
         // POST: Persona/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Persona persona)
         {
             try
             {
+                if (persona.Nacimiento != null) {
+                    DateTime fechaNacimiento = persona.Nacimiento;
+                    double annos = (DateTime.Now - fechaNacimiento).TotalDays / 365;
+                    persona.Edad= (int)Math.Floor(annos); ;
+                }
                 if (ModelState.IsValid) {
-                    db.Persona.Add(new Persona() { Nombre = collection["Nombre"], Edad = int.Parse(collection["Edad"]) ,Nacimiento = DateTime.Parse(collection["Nacimiento"]) });
+                    db.Persona.Add(persona);
                     db.SaveChanges();
                 }
                 // TODO: Add insert logic here
@@ -67,6 +72,12 @@ namespace AplicacionPersona.Controllers
         [HttpPost]
         public ActionResult Edit(Persona persona)
         {
+            if (persona.Nacimiento != null)
+            {
+                DateTime fechaNacimiento = persona.Nacimiento;
+                double annos = (DateTime.Now - fechaNacimiento).TotalDays / 365;
+                persona.Edad = (int)Math.Floor(annos); ;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(persona).State = EntityState.Modified;
