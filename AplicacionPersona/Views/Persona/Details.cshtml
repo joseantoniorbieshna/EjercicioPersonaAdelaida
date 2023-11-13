@@ -16,10 +16,14 @@
 
             foreach (var direccion in Model.Direcciones)
             {
-                <li>
-                    <p>@direccion.CodigoDireccion-@direccion.Calle</p>
-                </li>
+        <li style="display:flex">
+            <p style="margin-right:20px">@direccion.CodigoDireccion-@direccion.Calle</p>
+            
+            @Html.ActionLink("Edit", "Edit", "Direccions", new { id = @direccion.CodigoDireccion }, null) |
+            @Html.ActionLink("Details", "Details", "Direccions", new { id = @direccion.CodigoDireccion }, null) |
+            @Html.ActionLink("Delete", "Delete", "Direccions", new { id = @direccion.CodigoDireccion }, null)
+        </li>
             }
         }
     }
-    </ul>
+</ul>
