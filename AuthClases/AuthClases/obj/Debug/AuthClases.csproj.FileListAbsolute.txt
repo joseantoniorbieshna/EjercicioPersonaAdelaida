@@ -116,5 +116,3 @@ C:\Users\Administrador\source\repos\AuthClases\AuthClases\obj\Debug\AuthClases.c
 C:\Users\Administrador\source\repos\AuthClases\AuthClases\obj\Debug\AuthClases.csproj.CopyComplete
 C:\Users\Administrador\source\repos\AuthClases\AuthClases\obj\Debug\AuthClases.dll
 C:\Users\Administrador\source\repos\AuthClases\AuthClases\obj\Debug\AuthClases.pdb
-C:\Users\Administrador\source\repos\AuthClases\AuthClases\obj\Debug\AuthClases.Migrations.InitialCreate.resources
-C:\Users\Administrador\source\repos\AuthClases\AuthClases\obj\Debug\AuthClases.csproj.GenerateResource.cache
