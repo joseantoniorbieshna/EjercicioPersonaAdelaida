@@ -10,6 +10,7 @@ using AuthClases.Models;
 
 namespace AuthClases.Controllers
 {
+    [Authorize]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -51,8 +52,7 @@ namespace AuthClases.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.BlogPosts.Add(blogPost);
-                db.SaveChanges();
+                _repo.Crear(blogPost);
                 return RedirectToAction("Index");
             }
 
