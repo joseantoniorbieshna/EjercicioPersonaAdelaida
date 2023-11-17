@@ -8,11 +8,12 @@ namespace AuthClases.Models
 {
     public class Comentario
     {
+        
         public int Id { get; set; }
         public string Contenido { get; set; }
         public string Autor {  get; set; }
         public int BlogPostId { get; set; }
         [ForeignKey("BlogPostId")]
-        public BlogPost blogPost { get; set; }
+        public BlogPost BlogPost { get; set; }
     }
 }

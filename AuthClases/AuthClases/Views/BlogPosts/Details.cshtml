@@ -43,6 +43,27 @@
         </dd>
 
     </dl>
+
+    @if (@Model.Comentarios.Count > 0)
+    {
+        <p>Comentarios:</p>
+        <ol >
+
+
+            @foreach (var comentario in Model.Comentarios)
+            {
+                <li style="display:flex">
+                    @comentario.Contenido  -   @comentario.Autor   |
+                    @Html.ActionLink("Mostrar", "Details", "Comentarios", new { Id = comentario.Id }, new {  }) |
+                    @Html.ActionLink("Editar", "Edit", "Comentarios", new { Id = comentario.Id }, new { }) |
+                    @Html.ActionLink("Borrar", "Delete", "Comentarios", new { Id = comentario.Id }, new { })
+                </li>
+
+            }
+        </ol>
+    }
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

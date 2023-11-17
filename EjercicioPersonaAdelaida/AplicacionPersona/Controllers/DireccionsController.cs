@@ -38,9 +38,8 @@ namespace AplicacionPersona.Controllers
         }
 
         // GET: Direccions/Create
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
-            ViewBag.PersonaId = id;
             return View();
         }
 
@@ -71,18 +70,9 @@ namespace AplicacionPersona.Controllers
         }
 
         // GET: Direccions/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Direccion direccion = db.Direccion.Find(id);
-            if (direccion == null)
-            {
-                return HttpNotFound();
-            }
-            return View(direccion);
+            return View();
         }
 
         // POST: Direccions/Edit/5

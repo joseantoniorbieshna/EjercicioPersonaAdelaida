@@ -10,7 +10,6 @@ using AuthClases.Models;
 
 namespace AuthClases.Controllers
 {
-    [Authorize]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -29,7 +28,8 @@ namespace AuthClases.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPost blogPost = db.BlogPosts.Find(id);
+
+            BlogPost blogPost = db.BlogPosts.Include(e=>e.Comentarios).FirstOrDefault(e=>e.Id==id);
             if (blogPost == null)
             {
                 return HttpNotFound();
